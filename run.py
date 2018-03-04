@@ -10,6 +10,9 @@ sys.path.append(os.path.realpath(os.path.dirname(__file__))+"/src")
 from objects.BankAccountObj import BankAccount
 from objects.BitcoinObj import Bitcoin
 from objects.Stock import Stock
+from objects.SavingsObj import Savings
+from objects.GoldObj import Gold
+
 from objects.BalanceItemObj import BalanceItem
 from utils.parseData import parseData
 
@@ -18,11 +21,19 @@ items = parseData("./data/")
 balance_list = []
 for item in items:
     if isinstance(item, BankAccount):
-        for balanceItem in item.get_balance():
-            balance_list.append(balanceItem)
+        pass
+        #  for balanceItem in item.get_balance():
+            #  balance_list.append(balanceItem)
     elif isinstance(item, Stock):
-        balance_list.append(item.get_balance())
+        pass
+        #  balance_list.append(item.get_balance())
     elif isinstance(item, Bitcoin):
+        pass
+        #  balance_list.append(item.get_balance())
+    elif isinstance(item, Savings):
+        pass
+        #  balance_list.append(item.get_balance())
+    elif isinstance(item, Gold):
         balance_list.append(item.get_balance())
     else:
         print("Unknown instance type")

@@ -21,14 +21,14 @@ class Stock(object):
 
         """
         today =  date.today()
-        yesterday = date.today() - timedelta(1)
+        yesterday = date.today() - timedelta(5)
         stock_data = web.DataReader(self.isin, 'morningstar', yesterday, today)
         if self.currency == "USD":
             c = CurrencyConverter()
-            stock_value_usd = stock_data.as_matrix()[0][0]
+            stock_value_usd = stock_data.as_matrix()[len(stock_data.as_matrix()) -1 ][0]
             stock_value_eur = c.convert(stock_value_usd, 'USD', 'EUR')
         else:
-            stock_value_eur = stock_data.as_matrix()[0][0]
+            stock_value_eur = stock_data.as_matrix()[len(stock_data.as_matrix()) -1 ][0]
         return(BalanceItem(self.name, stock_value_eur * self.amount))
 
 
