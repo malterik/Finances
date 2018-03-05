@@ -21,18 +21,15 @@ items = parseData("./data/")
 balance_list = []
 for item in items:
     if isinstance(item, BankAccount):
-        pass
-        #  for balanceItem in item.get_balance():
-            #  balance_list.append(balanceItem)
+        for balanceItem in item.get_balance():
+            balance_list.append(balanceItem)
     elif isinstance(item, Stock):
-        pass
-        #  balance_list.append(item.get_balance())
+        balance_list.append(item.get_balance())
     elif isinstance(item, Bitcoin):
-        pass
-        #  balance_list.append(item.get_balance())
+        balance_list.append(item.get_balance())
     elif isinstance(item, Savings):
         pass
-        #  balance_list.append(item.get_balance())
+        balance_list.append(item.get_balance())
     elif isinstance(item, Gold):
         balance_list.append(item.get_balance())
     else:
