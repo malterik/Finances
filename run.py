@@ -5,6 +5,7 @@ import sys
 import os
 from datetime import date
 from fints.client import FinTS3PinTanClient
+import argparse
 
 sys.path.append(os.path.realpath(os.path.dirname(__file__))+"/src")
 from objects.BankAccountObj import BankAccount
@@ -17,8 +18,11 @@ from objects.ETFObj import ETF
 from objects.BalanceItemObj import BalanceItem
 from utils.parseData import parseData
 
-
-items = parseData("./data/")
+parser = argparse.ArgumentParser()
+parser.add_argument("PathToDataFolder")
+args = parser.parse_args()
+print(args.PathToDataFolder)
+items = parseData(args.PathToDataFolder)
 balance_list = []
 for item in items:
     if isinstance(item, BankAccount):
