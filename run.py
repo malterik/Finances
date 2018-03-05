@@ -12,6 +12,7 @@ from objects.BitcoinObj import Bitcoin
 from objects.Stock import Stock
 from objects.SavingsObj import Savings
 from objects.GoldObj import Gold
+from objects.ETFObj import ETF
 
 from objects.BalanceItemObj import BalanceItem
 from utils.parseData import parseData
@@ -31,6 +32,8 @@ for item in items:
         pass
         balance_list.append(item.get_balance())
     elif isinstance(item, Gold):
+        balance_list.append(item.get_balance())
+    elif isinstance(item, ETF):
         balance_list.append(item.get_balance())
     else:
         print("Unknown instance type")

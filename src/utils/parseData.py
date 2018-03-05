@@ -9,6 +9,7 @@ from objects.Stock import Stock
 from objects.BitcoinObj import Bitcoin
 from objects.SavingsObj import Savings
 from objects.GoldObj import Gold
+from objects.ETFObj import ETF
 
 def parseData(pathToData):
     """This function parses all the data items in the data folder and generates a list of all the objects
@@ -30,6 +31,8 @@ def parseData(pathToData):
             resultList.append(Savings(data["Name"], data["Amount"]))
         elif data["Type"] == "Gold":
             resultList.append(Gold(data["Name"], data["Amount"], data["Url"], data["xpath"]))
+        elif data["Type"] == "ETF":
+            resultList.append(ETF(data["Name"], data["Amount"], data["Url"], data["xpath"]))
         else:
             print(data["Type"])
             raise NameError("Invalid Object Type")
