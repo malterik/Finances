@@ -21,7 +21,6 @@ from utils.parseData import parseData
 parser = argparse.ArgumentParser()
 parser.add_argument("PathToDataFolder")
 args = parser.parse_args()
-print(args.PathToDataFolder)
 items = parseData(args.PathToDataFolder)
 balance_list = []
 for item in items:
